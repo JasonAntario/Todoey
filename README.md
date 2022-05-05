@@ -1,3 +1,5 @@
+Этот проект является частью курса "iOS & Swift - The Complete iOS App Development Bootcamp" от AppBrewery на Udemy
+
 ![App Brewery Banner](https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
 
 
