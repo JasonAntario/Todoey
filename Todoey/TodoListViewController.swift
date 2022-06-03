@@ -9,12 +9,16 @@
 import UIKit
 
 class TodoListViewController: UITableViewController {
-
+    
     var itemArray = ["Buy Eggs", "Find Nemo", "Go Fuck Yourself"]
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if let array = defaults.array(forKey: "TodoItemArray") as? [String] {
+            itemArray = array
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,12 +39,12 @@ class TodoListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            }
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -56,8 +60,8 @@ class TodoListViewController: UITableViewController {
         }
         
         let action = UIAlertAction(title: "Add item", style: .default) { action in
-            // something happend
             self.itemArray.append(textField.text!)
+            self.defaults.set(self.itemArray, forKey: "TodoItemArray")
             self.tableView.reloadData()
         }
         
