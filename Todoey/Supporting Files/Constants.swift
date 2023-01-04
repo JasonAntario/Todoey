@@ -10,6 +10,11 @@ import Foundation
 
 struct K {
     
-   static let cellIdentifier = "TodoItemCell"
+    static let cellIdentifier = "TodoItemCell"
+    static let cellCategoryIdentifier = "CategoryCell"
+    static let itemTitle = "title"
+    static let itemDone = "done"
+    static let parentCategory = "parentCategory"
     
+    static let segueId = "goToItems"
 }
